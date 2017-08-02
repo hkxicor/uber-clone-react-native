@@ -9,29 +9,39 @@ import {
 
 const LOGO_SIZE = 120
 
-export default class Logo extends Component{
-  constructor(){
-    super()
-
+export default class Logo extends Component {
+  constructor(props){
+    super(props)
+    this.fadeAnim = new Animated.Value(0)
   }
-
+  componentDidMount() {
+    Animated.timing(
+      this.fadeAnim,
+      {
+        toValue: .7,
+        duration: 1000,
+      }
+    ).start();
+  }
   render() {
     return(
-      <View
-        style={[styles.container, styles.position]}
-        shadowColor="#000"
-        shadowOffset={{
-          width: 0,
-          height:10
-        }}
-        shadowOpacity={.6}
-        shadowRadius={10}
+      <Animated.View
+        style={[styles.container, styles.position, {
+          shadowOpacity: this.fadeAnim,
+          shadowColor: '#000',
+          shadowRadius: 20,
+
+        }]}
+        shadowOffset= {
+          {width: 0,
+          height: 10}
+        }
         >
         <Text
           style={styles.text}
           fontVariant={'small-caps'}>
           UBER</Text>
-      </View>
+      </Animated.View>
     )
   }
 }
@@ -42,7 +52,7 @@ const styles = StyleSheet.create({
     height: LOGO_SIZE,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
   },
   text: {
     fontWeight: '600',
