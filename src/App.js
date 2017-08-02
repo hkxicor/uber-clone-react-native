@@ -4,13 +4,13 @@ import { Provider } from 'react-redux'
 
 import store from './store'
 
+import LoginScreen from './containers/LoginScreen'
+
 export default class App extends Component{
   render() {
     return (
       <Provider store={store}>
-        <View style={styles.container}>
-          <Text>Himasnji</Text>
-        </View>
+        <LoginScreen />
       </Provider>
     )
   }
