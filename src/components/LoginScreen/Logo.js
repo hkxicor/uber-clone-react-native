@@ -5,6 +5,8 @@ import {
   StyleSheet,
   Dimensions,
   Animated,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from 'react-native'
 
 const LOGO_SIZE = 120
@@ -26,21 +28,9 @@ export default class Logo extends Component {
   render() {
     return(
       <Animated.View
-        style={[styles.container, styles.position, {
-          shadowOpacity: this.fadeAnim,
-          shadowColor: '#000',
-          shadowRadius: 20,
-
-        }]}
-        shadowOffset= {
-          {width: 0,
-          height: 10}
-        }
+        style={[styles.container, styles.position, styles.shadow , {shadowOpacity: this.fadeAnim}]}
         >
-        <Text
-          style={styles.text}
-          fontVariant={'small-caps'}>
-          UBER</Text>
+        <Text style={styles.text}>UBER</Text>
       </Animated.View>
     )
   }
@@ -63,5 +53,13 @@ const styles = StyleSheet.create({
   position:{
     marginLeft: Dimensions.get('window').width/2 - LOGO_SIZE/2,
     marginTop: LOGO_SIZE*1
+  },
+  shadow: {
+    shadowColor: '#000',
+    shadowRadius: 20,
+    shadowOffset: {
+      width: 0,
+      height: 10,
+    }
   }
 })

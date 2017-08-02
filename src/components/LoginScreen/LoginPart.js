@@ -6,44 +6,55 @@ import {
   Dimensions,
   Animated,
   TextInput,
+  TouchableOpacity,
 } from 'react-native'
+import MobileInput from './MobileInput'
 
-const DrawerHeight = Dimensions.get('window').height/2
+const SCREEN_HEIGHT = Dimensions.get('window').height
+const SCREEN_WIDTH = Dimensions.get('window').width
+
+const DrawerHeight = SCREEN_HEIGHT/2
 export default class LoginPart extends Component{
   constructor(){
     super()
+    this.factor = new Animated.Value(160)
+    this._onPress = this._onPress.bind(this)
+  }
+  componentDidMount(){
 
   }
-
+  _onPress(){
+    Animated.spring(
+      this.factor,
+      {
+        toValue: -SCREEN_HEIGHT/2 + 80,
+      }
+    ).start();
+  }
   render() {
     return(
-      <View style={[styles.container]}>
+      <Animated.View style={[styles.container,{
+        top: this.factor,
+      }]}>
+      <TouchableOpacity onPress={this._onPress}>
         <View style={styles.partitionUp}>
           <Text style={styles.text}>Get moving with Uber</Text>
-          <View style={styles.mobileDetails}>
-            <Text style={styles.country}>IND</Text>
-            <Text style={styles.country}>+91</Text>
-            <TextInput
-              style={styles.mobileNumberInput}
-              placeholder="Enter your mobile number"
-              value={""} />
-          </View>
+          <MobileInput />
         </View>
         <View style={styles.lineSeprator}></View>
         <View style={styles.partitionUp}>
           <Text style={styles.smallText}>Or connect with social</Text>
         </View>
-      </View>
+      </TouchableOpacity>
+      </Animated.View>
     )
   }
 }
 
 const styles = StyleSheet.create({
   container:{
-    width: Dimensions.get('window').width,
-    height: DrawerHeight,
-    top: Dimensions.get('window').height/2 - DrawerHeight/2,
-    backgroundColor: '#fff'
+    width: SCREEN_WIDTH,
+    backgroundColor: '#fff',
   },
   text: {
     fontWeight: '300',
@@ -53,29 +64,13 @@ const styles = StyleSheet.create({
   partitionUp: {
     padding:30,
   },
-  mobileDetails: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    marginTop: 30,
-  },
-  country: {
-    flex: 1,
-    fontSize: 20,
-    fontWeight: '400',
-
-  },
-  mobileNumberInput: {
-    flex: 4,
-    width: 400,
-  },
   lineSeprator: {
     borderColor: '#777',
     borderWidth: .3,
     marginTop: 50,
   },
   smallText:{
-    color: '#4286f4',
+    color: '#292ec4',
   }
 
 })
