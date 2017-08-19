@@ -87,27 +87,7 @@ class Main extends Component {
         <LocationSearchResults visible={searchResultsOpen}>
           <SearchResultsList list={recentLocations} />
         </LocationSearchResults>
-        <MapView
-          style={styles.map}
-          region={region}
-        >
-          {position && (
-            <MapView.Circle
-              center={position}
-              radius={300}
-              strokeColor={'transparent'}
-              fillColor={'rgba(112,185,213,0.30)'}
-            />
-          )}
-          {position && (
-            <MapView.Circle
-              center={position}
-              radius={100}
-              strokeColor={'transparent'}
-              fillColor={'#3594BC'}
-            />
-          )}
-        </MapView>
+
       </View>
     )
   }
@@ -121,6 +101,7 @@ const styles = StyleSheet.create({
   map: {
     flex: 1,
     zIndex: -1,
+    width: 100,
   }
 })
 
