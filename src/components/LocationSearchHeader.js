@@ -150,6 +150,7 @@ export default class LocationSearchHeader extends Component {
               ref={'destinationInput'}
               style={styles.input}
               value={destinationText}
+              underlineColorAndroid='rgba(0,0,0,0)'
               onChangeText={this.onDestinationTextChange}
             />
           )}
@@ -186,6 +187,9 @@ export default class LocationSearchHeader extends Component {
 const styles = StyleSheet.create({
   container: {
     zIndex: 1,
+    position: 'absolute',
+    height: 200,
+    width: 600,
   },
   hoverbar: {
     position: 'absolute',
@@ -218,6 +222,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EDEDED',
     borderRadius: 4,
     zIndex: 3,
+
   },
   destinationText: {
     position: 'absolute',
@@ -248,7 +253,7 @@ const styles = StyleSheet.create({
     color: 'black',
     backgroundColor: 'transparent',
     zIndex: 10,
-    fontSize: 15,
+    fontSize: 10,
     paddingHorizontal: 10,
   },
 })

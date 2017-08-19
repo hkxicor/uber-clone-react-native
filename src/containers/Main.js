@@ -26,7 +26,19 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    navigator.geolocation.getCurrentPosition(
+    this.setState({
+      position: {
+        latitude: 51.5033640,
+        longitude: -0.1276250
+      },
+      region: {
+        latitude: 51.5033640,
+        longitude: -0.1276250,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+      }
+    })
+    /*navigator.geolocation.getCurrentPosition(
       ({coords}) => {
         const {latitude, longitude} = coords
 
@@ -45,7 +57,7 @@ class Main extends Component {
       },
       (error) => alert(JSON.stringify(error)),
       {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
-    )
+    )*/
   }
 
   toggleSearchResults = () => {
@@ -87,7 +99,27 @@ class Main extends Component {
         <LocationSearchResults visible={searchResultsOpen}>
           <SearchResultsList list={recentLocations} />
         </LocationSearchResults>
-
+        <MapView
+          style={styles.map}
+          region={region}
+        >
+          {position && (
+            <MapView.Circle
+              center={position}
+              radius={300}
+              strokeColor={'transparent'}
+              fillColor={'rgba(112,185,213,0.30)'}
+            />
+          )}
+          {position && (
+            <MapView.Circle
+              center={position}
+              radius={100}
+              strokeColor={'transparent'}
+              fillColor={'#3594BC'}
+            />
+          )}
+        </MapView>
       </View>
     )
   }
@@ -101,7 +133,6 @@ const styles = StyleSheet.create({
   map: {
     flex: 1,
     zIndex: -1,
-    width: 100,
   }
 })
 
