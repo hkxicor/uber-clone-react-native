@@ -23,4 +23,4 @@ npm link
 ### Third Step
 Run the Android or IOS project if you get an @override error relative to <\br>
 node_modules\react-native-maps\lib\android\src\main\java\com\airbnb\android\react\maps\MapsPackage.java
-than delete @override on line 27 from this file MapsPackage.java
+then delete @override on line 27 from this file MapsPackage.java
