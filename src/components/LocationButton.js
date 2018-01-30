@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { StyleSheet, Image, TouchableOpacity } from 'react-native'
 
 import AssetMap from '../config/AssetMap'

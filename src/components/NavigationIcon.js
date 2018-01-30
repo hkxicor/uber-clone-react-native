@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { StyleSheet, TouchableOpacity, Image } from 'react-native'
 
 import AssetMap from '../config/AssetMap'
@@ -12,10 +12,6 @@ const hitSlop = {
 }
 
 export default class NavigationIcon extends Component {
-
-  static propTypes = {
-    icon: PropTypes.string.isRequired,
-  }
 
   static defaultProps = {
     onPress: () => {}

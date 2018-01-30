@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { StyleSheet, View, Text, Image, Dimensions } from 'react-native'
 import * as Animatable from 'react-native-animatable'
 

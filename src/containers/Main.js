@@ -19,10 +19,13 @@ const mapStateToProps = (state) => ({
 
 class Main extends Component {
 
-  state = {
-    searchResultsOpen: false,
-    sourceText: 'Work',
-    destinationText: '',
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchResultsOpen: false,
+      sourceText: 'Work',
+      destinationText: '',
+    }
   }
 
   componentDidMount() {
@@ -38,45 +41,25 @@ class Main extends Component {
         longitudeDelta: 0.0421,
       }
     })
-    /*navigator.geolocation.getCurrentPosition(
-      ({coords}) => {
-        const {latitude, longitude} = coords
-
-        this.setState({
-          position: {
-            latitude,
-            longitude,
-          },
-          region: {
-            latitude,
-            longitude,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          },
-        })
-      },
-      (error) => alert(JSON.stringify(error)),
-      {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
-    )*/
   }
 
   toggleSearchResults = () => {
-    const {searchResultsOpen} = this.state
+    const { searchResultsOpen } = this.state
 
-    this.setState({searchResultsOpen: !searchResultsOpen})
+    this.setState({ searchResultsOpen: !searchResultsOpen })
   }
 
   onSourceTextChange = (sourceText) => {
-    this.setState({sourceText})
+    this.setState({ sourceText })
   }
 
   onDestinationTextChange = (destinationText) => {
-    this.setState({destinationText})
+    this.setState({ destinationText })
   }
 
   render() {
-    const {recentLocations, shortcutLocations} = this.props
-    const {searchResultsOpen, sourceText, destinationText, region, position} = this.state
+    const { recentLocations, shortcutLocations } = this.props
+    const { searchResultsOpen, sourceText, destinationText, region, position } = this.state
 
     return (
       <View style={styles.container}>
