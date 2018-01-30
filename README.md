@@ -3,6 +3,7 @@ Uber UI/UX Clone in React Native
 
 ## Sample
 ![Screenshot](image.png)
+![Screenshot](image2.png)
 
 ## TODO
    * [x] Find a solution to the @override error
