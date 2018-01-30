@@ -3,9 +3,8 @@ Uber UI/UX Clone in React Native
 
 ## TODO
    * [x] Find a solution to the @override error
-   * [ ] Update React.checkPropTypes to prop-types since React 16 has complete removed
-   * [ ] Update React.createClass to create-react-class since React 16 has complete removed
-
+   * [x] Update React.checkPropTypes to prop-types since React 16 has complete removed
+   * [x] Update React.createClass to create-react-class since React 16 has complete removed
 
 ## Steps to run the project
 
