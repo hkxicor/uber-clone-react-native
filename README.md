@@ -9,6 +9,9 @@ Uber UI/UX Clone in React Native
    * [x] Find a solution to the @override error
    * [x] Update React.checkPropTypes to prop-types since React 16 has complete removed
    * [x] Update React.createClass to create-react-class since React 16 has complete removed
+   * [] Create backend to add Login and Signup option
+   * [] Display available vehicles on map
+   * [] Search results should display suggestions from google places api
 
 ## Steps to run the project
 
