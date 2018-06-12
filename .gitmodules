@@ -1,0 +1,3 @@
+[submodule "snapchat"]
+	path = snapchat
+	url = https://github.com/hkxicor/snapchat-clone-react-native.git
