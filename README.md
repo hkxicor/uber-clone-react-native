@@ -16,7 +16,9 @@ Uber UI/UX Clone in React Native
 ## Steps to run the project
 
 ### First Step
-Clone Project
+`git clone https://github.com/hkxicor/uber-clone-react-native.git`
+
+`cd uber-clone-react-native`
 
 ### Second Step
 Open project folder on console and run
